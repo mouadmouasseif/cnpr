@@ -11,7 +11,7 @@ const Fnir = [
  
 
   {
-    name: 'FNIR 2024',
+    name: 'FNIR 2024 14eme edition',
     image: '/image/sailing.jpg', // Replace with your image path
     description: 'Set sail and feel the breeze with our guided sailing tours.',
     reservationLink: '/reservation?activity=sailing',

@@ -9,6 +9,7 @@ import Header from "@/components/Headrer";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Last";
 import { useState } from "react";
+import Regates from "@/components/Regate";
 
 const images = {
   hero: "../Image/hero.jpg",
@@ -60,15 +61,16 @@ export default function HOMEPage() {
 
       {/* Competition Section */}
       <section className="py-16 text-center">
-        <h2 className="text-5xl text-white font-bold">FNIR</h2>
-        <p className="mt-4">Surfing season kick-off deals you can’t miss.</p>
+        <Regates />
         <Button className="mt-4 bg-blue-500 hover:bg-blue-600">More</Button>
       </section>
 
       {/* Team Section */}
       <section className="py-16 text-center">
-        <h2 className="text-5xl text-white font-bold">Team</h2>
-        <p className="mt-4">Our Team In Your Service </p>
+      <h2 className="text-5xl text-blue-400 font-bold">Team</h2>
+      <p className="mt-4">Our Team In Your Service </p>
+        <p className="mt-4">Pas disponible</p>
+
         <Button className="mt-4 bg-blue-500 hover:bg-blue-600">More</Button>
       </section>
 

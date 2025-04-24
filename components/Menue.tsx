@@ -26,7 +26,7 @@ export default function Menue() {
           <Image
             src={isHovered ? images.logoHover : images.logo}
             alt="Logo"
-            width={80}
+            width={100}
             height={50}
             className="cursor-pointer"
             onMouseEnter={() => setIsHovered(true)}
@@ -43,7 +43,7 @@ export default function Menue() {
           <Link href="/regate" className="hover:text-blue-600 text-base lg:text-xl font-medium">Régates</Link>
           <Link href="/contact" className="hover:text-blue-600 text-base lg:text-xl font-medium">Contact</Link>
           <a href="https://www.instagram.com/cnpr_rabat/" target="_blank" rel="noopener noreferrer">
-            <Instagram className="w-6 h-6 text-blue-500 hover:text-blue-700" />
+            <Instagram className="w-6 h-6 text-black hover:text-blue-700" />
           </a>
         </nav>
 
