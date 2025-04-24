@@ -8,37 +8,37 @@ import React from 'react'
 const activities = [
   {
     name: 'Surf',
-    image: '/image/surf.jpg',
+    image: '/Image/surf.jpg',
     description: 'Enjoy the thrill of surfing with our expert instructors.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68564',
   },
   {
     name: 'Kayak',
-    image: '/image/kayak.jpg',
+    image: '/Image/kayak.jpg',
     description: 'Explore the waters on a kayak and experience nature like never before.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68540',
   },
   {
     name: 'Sailing',
-    image: '/image/sailing.jpg',
+    image: '/Image/sailing.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
     reservationLink: '/reservation?activity=sailing',
   },
   {
     name: 'Bodyboard',
-    image: '/image/bodyboard.jpg',
+    image: '/Image/bodyboard.jpg',
     description: 'Ride the waves with the excitement of bodyboarding.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68564',
   },
   {
     name: 'Paddle',
-    image: '/image/paddle.jpg',
+    image: '/Image/paddle.jpg',
     description: 'Try paddleboarding and enjoy the calmness of the water.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68561',
   },
   {
     name: 'Aviron',
-    image: '/image/paddle.jpg',
+    image: '/image/Aviron.jpg',
     description: 'Try paddleboarding and enjoy the calmness of the water.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68561',
   },
