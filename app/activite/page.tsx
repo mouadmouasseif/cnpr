@@ -20,7 +20,7 @@ const activities = [
   },
   {
     name: 'Sailing',
-    image: '/Image/sailing.jpg',
+    image: '/Image/Sailing.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
     reservationLink: '/reservation?activity=sailing',
   },
@@ -38,7 +38,7 @@ const activities = [
   },
   {
     name: 'Aviron',
-    image: '/image/Aviron.jpg',
+    image: '/Image/Aviron.jpg',
     description: 'Try paddleboarding and enjoy the calmness of the water.',
     reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68561',
   },

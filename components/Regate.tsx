@@ -8,13 +8,13 @@ import Link from 'next/link';
 const Fnir = [
   {
     name: 'FNIR 2024',
-    image: '/image/fnir2024.jpg',
+    image: '/Image/fnir2024.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
     reservationLink: '/reservation?activity=sailing',
   },
   {
     name: 'FNIR 2023',
-    image: '/image/fnir23.jpg',
+    image: '/Image/fnir23.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
     reservationLink: '/reservation?activity=sailing',
   },
