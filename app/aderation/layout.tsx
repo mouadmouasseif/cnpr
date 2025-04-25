@@ -2,7 +2,6 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import { useState } from "react";
-import Image from "next/image";
 import Menue from "@/components/Menue";
 const images = {
   hero: "./Image/hero.jpg",
