@@ -26,9 +26,9 @@ export default function Activechose() {
       if (window.innerWidth < 640) {
         setCardsPerView(1);
       } else if (window.innerWidth < 1024) {
-        setCardsPerView(2);
-      } else {
         setCardsPerView(3);
+      } else {
+        setCardsPerView(4);
       }
     };
 
@@ -61,13 +61,13 @@ export default function Activechose() {
 
   return (
     <section className="py-16 relative w-full bg-cover bg-center text-center bg-gray-100">
-      <h2 className="text-4xl text-blue-400 font-bold mb-8">CHOOSE YOUR ACTIVITE</h2>
+      <h2 className="text-4xl text-blue-600 font-bold mb-8">CHOOSE YOUR ACTIVITE</h2>
 
       <div className="flex items-center justify-center gap-4 relative">
         {/* Flèche gauche */}
         <button
           onClick={handlePrev}
-          className="text-3xl text-amber-400 hover:text-blue-600 transition-colors"
+          className="text-2xl text-blue-400 hover:text-blue-600 transition-colors"
           aria-label="Précédent"
         >
           ◀
@@ -76,16 +76,16 @@ export default function Activechose() {
         {/* Cartes */}
         <div className="flex items-center justify-center gap-6 transition-all duration-500">
           {visibleActivities.map((activity) => (
-            <Card key={activity} className="w-[250px] h-[320px] overflow-hidden relative shadow-md">
+            <Card key={activity} className="w-[250px] h-[350px] overflow-hidden relative shadow-md">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage: `url(${images[activity.toLowerCase() as keyof typeof images]})`,
                 }}
               />
-              <CardContent className="p-0 relative z-10 flex flex-col justify-between h-full ">
-                <div className="text-center text-amber-400">
-                  <h3 className="text-xl font-semibold bg-opacity-50 py-2 px-4 inline-block rounded-md">
+              <CardContent className="p-0 relative z-10 flex flex-col justify-between h-full top-0">
+                <div className="text-center text-blue-600">
+                  <h3 className="text-xl font-semibold bg-opacity-50 py-2 px-4 inline-block rounded-md ">
                     {activity}
                   </h3>
                 </div>
@@ -102,7 +102,7 @@ export default function Activechose() {
         {/* Flèche droite */}
         <button
           onClick={handleNext}
-          className="text-3xl text-amber-400 hover:text-blue-600 transition-colors"
+          className="text-2xl text-blue-400 hover:text-blue-600 transition-colors"
           aria-label="Suivant"
         >
           ▶

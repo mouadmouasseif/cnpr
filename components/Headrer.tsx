@@ -34,6 +34,7 @@ export default function Header() {
 
         {/* Boutons côte à côte */}
         <div className="flex flex-row flex-wrap justify-center gap-4 mt-6">
+       
           <Button className="bg-amber-400 hover:bg-blue-500">
             <Link href="/activite">Réserver Séance</Link>
           </Button>

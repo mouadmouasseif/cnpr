@@ -10,12 +10,32 @@ import { Button } from "@/components/ui/button";
 const Fnir = [
  
 
-  {
-    name: 'FNIR 2024',
-    image: '/image/sailing.jpg', // Replace with your image path
-    description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/reservation?activity=sailing',
-  },
+ 
+{
+      name: 'FNIR 2024',
+      image: '/Image/fnir2024.jpg',
+      description: 'Set sail and feel the breeze with our guided sailing tours.',
+      reservationLink: '/regate',
+    },
+    {
+      name: 'FNIR 2023',
+      image: '/Image/fnir23.jpg',
+      description: 'Set sail and feel the breeze with our guided sailing tours.',
+      reservationLink: '/regate',
+    },
+    {
+      name: 'FNIR 2022',
+      image: '/Image/fnir22.jpg',
+      description: 'Set sail and feel the breeze with our guided sailing tours.',
+      reservationLink: '/regate',
+    },
+    {
+      name: 'FNIR 2021',
+      image: '/image/sailing.jpg', // Replace with your image path
+      description: 'Set sail and feel the breeze with our guided sailing tours.',
+      reservationLink: '/reservation?activity=sailing',
+    },
+  
 
  
 ]

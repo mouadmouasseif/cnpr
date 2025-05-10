@@ -5,24 +5,25 @@ import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 const Fnir = [
   {
     name: 'FNIR 2024',
     image: '/Image/fnir2024.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/reservation?activity=sailing',
+    reservationLink: '/regate',
   },
   {
     name: 'FNIR 2023',
     image: '/Image/fnir23.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/reservation?activity=sailing',
+    reservationLink: '/regate',
   },
   {
     name: 'FNIR 2022',
     image: '/Image/fnir22.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/reservation?activity=sailing',
+    reservationLink: '/regate',
   },
 ];
 
@@ -68,14 +69,13 @@ export default function Regates() {
   });
 
   return (
-    <section className="py-16 bg-gray-100 text-center w-full">
-      <h2 className="text-4xl text-blue-400 font-bold mb-8">Festivale Nautique International de Rabat</h2>
+    <section className="py-16 bg-white text-center w-full">
 
       <div className="flex items-center justify-center gap-4 relative">
         {/* Bouton gauche */}
         <button
           onClick={handlePrev}
-          className="text-3xl text-amber-400 hover:text-blue-600 transition-colors"
+          className="text-3xl text-blue-400 hover:text-blue-600 transition-colors"
           aria-label="Précédent"
         >
           ◀
@@ -84,7 +84,7 @@ export default function Regates() {
         {/* Cartes visibles */}
         <div className={`flex justify-center items-center gap-6 transition-all duration-500 ${cardsPerView === 1 ? "w-full" : ""}`}>
           {visibleCards.map((item) => (
-            <Card key={item.name} className="w-[250px] h-[360px] overflow-hidden relative shadow-md mx-auto">
+            <Card key={item.name} className="w-[350px]  overflow-hidden relative shadow-md mx-auto">
               <div className="relative w-full h-[180px]">
                 <Image
                   src={item.image}
@@ -97,7 +97,7 @@ export default function Regates() {
                 <h3 className="text-xl font-semibold text-amber-500">{item.name}</h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
                 <Button className="mt-4 bg-blue-500 text-white hover:bg-blue-400">
-                  <Link href={item.reservationLink}>RÉSERVER</Link>
+                  <Link href={item.reservationLink}>Lire Plus</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -107,7 +107,7 @@ export default function Regates() {
         {/* Bouton droit */}
         <button
           onClick={handleNext}
-          className="text-3xl text-amber-400 hover:text-blue-600 transition-colors"
+          className="text-3xl text-blue-400 hover:text-blue-600 transition-colors"
           aria-label="Suivant"
         >
           ▶

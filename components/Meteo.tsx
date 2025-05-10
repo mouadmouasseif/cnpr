@@ -1,46 +1,31 @@
-// meteo.tsx
-'use client'
-import React from "react";
-import { useState } from 'react'
-import { useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
 
-const MeteoWidget = () => {
+import { useEffect } from 'react';
+
+export default function Meteo() {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.id = "wg_fwdg_49287_100_1743550352497";
-    script.innerHTML = `
-      (function (window, document) {
-        var loader = function () {
-          var arg = ["s=49287", "m=100", "mw=84", "uid=wg_fwdg_49287_100_1743553769389", "wj=knots", "tj=c", "waj=m", "tij=cm", "odh=0", "doh=24", "fhours=240", "hrsm=3", "vt=forecasts", "lng=fr", "idbs=1", "ts=2", "p=WINDSPD,GUST,SMER,TMPE,FLHGT,CDC,APCP1s,RATING"];
-          var script = document.createElement("script");
-          var tag = document.getElementsByTagName("script")[0];
-          script.src = "https://www.windguru.cz/js/widget.php?" + (arg.join("&"));
-          tag.parentNode.insertBefore(script, tag);
-        };
-        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-      })(window, document);
-    `;
-    document.body.appendChild(script); // Ajouter le script au DOM
+    const scriptId = 'wg_fwdg_49287_100_1746910311567';
 
-    return () => {
-      document.body.removeChild(script); // Nettoyer en supprimant le script à la destruction du composant
-    };
+    // Si le script n'est pas encore injecté, on l'ajoute
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      const args = [
+        "s=49287", "m=100", "mw=84",
+        `uid=${scriptId}`, "wj=knots", "tj=c", "waj=m", "tij=cm",
+        "odh=0", "doh=24", "fhours=240", "hrsm=2",
+        "vt=forecasts", "lng=fr", "idbs=1",
+        "p=WINDSPD,GUST,SMER,HTSGW,PERPW,DIRPW,PWEN,SWELL1,SWPER1,WVPER,TMP,TMPE,FLHGT,CDC,APCP1s,RATING"
+      ];
+
+      script.id = scriptId;
+      script.src = `https://www.windguru.cz/js/widget.php?${args.join('&')}`;
+      script.async = true;
+
+      document.getElementById('wg-widget-container')?.appendChild(script);
+    }
   }, []);
 
   return (
-    <section className="py-16 text-center justify-center">
-      <Card className="w-full mx-auto shadow-lg p-6">
-        <CardHeader>
-          <CardTitle className="text-4xl font-bold text-blue-600">Il y aura-t-il des vagues demain?</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2">
-          {/* Le widget Windguru sera chargé ici */}
-          <div id="wg_fwdg_49287_100_1743550352497" className="py-16 text-center"></div>
-        </CardContent>
-      </Card>
-    </section>
+    <div id="wg-widget-container" style={{ overflowX: 'auto' }} />
   );
-};
-
-export default MeteoWidget;
+}
