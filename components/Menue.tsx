@@ -46,9 +46,33 @@ export default function Menue() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden ml-auto" onClick={toggleMenu} aria-label="Toggle Menu">
-          {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-        </button>
+        <div className="flex items-center justify-between w-full relative">
+  {/* Logo centré visuellement, même plan horizontal */}
+  <div className="absolute left-1/2 transform -translate-x-1/2">
+    <Image
+      src={images.logo}
+      alt="Logo"
+      width={50}
+      height={50}
+      className="cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    />
+  </div>
+
+  {/* Spacer pour garder le plan horizontal */}
+  <div className="w-12" /> {/* Peut être ajusté selon la taille du logo */}
+
+  {/* Menu bouton à droite */}
+  <button
+    className="md:hidden ml-auto flex z-10"
+    onClick={toggleMenu}
+    aria-label="Toggle Menu"
+  >
+    {menuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+  </button>
+</div>
+
       </div>
 
       {/* Mobile Navigation */}
