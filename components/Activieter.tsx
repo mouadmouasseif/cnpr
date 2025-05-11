@@ -15,6 +15,14 @@ export default function Activechose() {
     sailing: "./Image/Sailing.jpg",
     aviron: "./Image/Aviron.jpg",
   };
+  const reservationlink = { 
+    kayak: "kayak",
+    surf: "/surf",
+    bodyboard: "https://booking.myrezapp.com/fr/online/booking/step1/16225/68564",
+    paddle: "paddel",
+    sailing: "/sailing",
+    aviron: "/aviron",
+  };
 
   const allActivities = ["Surf", "Kayak", "Bodyboard", "Paddle", "Sailing", "Aviron"];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -90,9 +98,16 @@ export default function Activechose() {
                   </h3>
                 </div>
                 <div className="p-4 text-center">
-                  <Button className="mt-4 bg-blue-400 text-white hover:bg-blue-300">
-                    <a href="/activite">RESERVER</a>
-                  </Button>
+                <a
+  href={reservationlink[activity.toLowerCase() as keyof typeof reservationlink]}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button className="mt-4 bg-blue-400 text-white hover:bg-blue-300">
+    RESERVER
+  </Button>
+</a>
+
                 </div>
               </CardContent>
             </Card>
