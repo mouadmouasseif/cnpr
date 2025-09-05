@@ -9,7 +9,12 @@ import { Button } from "@/components/ui/button";
 
 const Fnir = [
  
-
+{
+      name: 'FNIR 2025',
+      image: '/Image/fnir2025.jpg',
+      description: 'Set sail and feel the breeze with our guided sailing tours.',
+      reservationLink: '/regate',
+    },
  
 {
       name: 'FNIR 2024',
@@ -31,7 +36,7 @@ const Fnir = [
     },
     {
       name: 'FNIR 2021',
-      image: '/image/sailing.jpg', // Replace with your image path
+      image: '/Image/sailing.jpg', // Replace with your image path
       description: 'Set sail and feel the breeze with our guided sailing tours.',
       reservationLink: '/reservation?activity=sailing',
     },
