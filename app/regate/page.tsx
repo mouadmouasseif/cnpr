@@ -36,7 +36,7 @@ const Fnir = [
     },
     {
       name: 'FNIR 2021',
-      image: '/Image/sailing.jpg', // Replace with your image path
+      image: '/Image/Sailing.jpg', // Replace with your image path
       description: 'Set sail and feel the breeze with our guided sailing tours.',
       reservationLink: '/reservation?activity=sailing',
     },

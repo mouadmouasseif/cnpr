@@ -6,7 +6,7 @@ const memberships = [
   {
     title: "Paddel",
     description: "Paddel",
-    price: "1500 dhs",
+    price: "2500 dhs",
     details: [
       "Cette adhésion couvre simplement les frais d'inscription.",
       "................."
@@ -17,7 +17,7 @@ const memberships = [
   {
     title: "CANOE KAYAK",
     description: "Pour l'équipe \"pagaie\"",
-    price: "1500 dhs",
+    price: "2500 dhs",
     details: [
       "Frais d'inscription inclus.",
       "4h de kayak le week-end",
@@ -29,7 +29,7 @@ const memberships = [
   {
     title: "Avion",
     description: "Pour l'équipe \"pagaie\"",
-    price: "1500 dhs",
+    price: "2500 dhs",
     details: [
       "Frais d'inscription inclus.",
       "Aviron",
@@ -41,7 +41,7 @@ const memberships = [
   {
     title: "Surf & Bodyboard",
     description: "Pour l'équipe \"pagaie\"",
-    price: "1500 dhs",
+    price: "2500 dhs",
     details: [
       "Frais d'inscription inclus.",
       "...........",
@@ -53,7 +53,7 @@ const memberships = [
   {
     title: "ECOLE DE VOILE",
     description: "Deux séances par semaine",
-    price: "2650 dhs",
+    price: "4000 dhs",
     details: [
       "Frais d'inscription inclus.",
       "4h de cours de voile le week-end",
