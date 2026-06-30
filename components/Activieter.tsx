@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { buildReservationMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 
 export default function Activechose() {
   const images = {
@@ -15,15 +16,6 @@ export default function Activechose() {
     sailing: "./Image/Sailing.jpg",
     aviron: "./Image/Aviron.jpg",
   };
-  const reservationlink = { 
-    kayak: "kayak",
-    surf: "/surf",
-    bodyboard: "https://booking.myrezapp.com/fr/online/booking/step1/16225/68564",
-    paddle: "paddel",
-    sailing: "/sailing",
-    aviron: "/aviron",
-  };
-
   const allActivities = ["Surf", "Kayak", "Bodyboard", "Paddle", "Sailing", "Aviron"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
@@ -98,8 +90,8 @@ export default function Activechose() {
                   </h3>
                 </div>
                 <div className="p-4 text-center">
-                <a
-  href={reservationlink[activity.toLowerCase() as keyof typeof reservationlink]}
+<a
+  href={buildWhatsAppLink(buildReservationMessage(activity))}
   target="_blank"
   rel="noopener noreferrer"
 >

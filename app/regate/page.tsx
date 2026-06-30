@@ -1,11 +1,6 @@
-// pages/activities.js
-'use client'
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import MeteoWidget from '@/components/Meteo';
-import React from 'react'
-import { Button } from "@/components/ui/button";
+import { buildReservationMessage, buildWhatsAppLink } from '@/lib/whatsapp'
 
 const Fnir = [
  
@@ -13,32 +8,27 @@ const Fnir = [
       name: 'FNIR 2025',
       image: '/Image/fnir2025.jpg',
       description: 'Set sail and feel the breeze with our guided sailing tours.',
-      reservationLink: '/regate',
     },
  
 {
       name: 'FNIR 2024',
       image: '/Image/fnir2024.jpg',
       description: 'Set sail and feel the breeze with our guided sailing tours.',
-      reservationLink: '/regate',
     },
     {
       name: 'FNIR 2023',
       image: '/Image/fnir23.jpg',
       description: 'Set sail and feel the breeze with our guided sailing tours.',
-      reservationLink: '/regate',
     },
     {
       name: 'FNIR 2022',
       image: '/Image/fnir22.jpg',
       description: 'Set sail and feel the breeze with our guided sailing tours.',
-      reservationLink: '/regate',
     },
     {
       name: 'FNIR 2021',
       image: '/Image/Sailing.jpg', // Replace with your image path
       description: 'Set sail and feel the breeze with our guided sailing tours.',
-      reservationLink: '/reservation?activity=sailing',
     },
   
 
@@ -64,7 +54,12 @@ export default function Regates() {
                 <h2 className="text-xl font-semibold">{Fnir.name}</h2>
                 <p className="mt-2 text-gray-600">{Fnir.description}</p>
         
-              <Link  href={Fnir.reservationLink}  className="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-full text-center hover:bg-blue-600">
+              <Link
+                href={buildWhatsAppLink(buildReservationMessage(Fnir.name))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-full text-center hover:bg-blue-600"
+              >
         
                   Lire Plus
         

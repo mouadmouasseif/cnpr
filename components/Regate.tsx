@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
 import Link from 'next/link';
+import { buildReservationMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 
 
 const Fnir = [
@@ -11,19 +12,16 @@ const Fnir = [
     name: 'FNIR 2024',
     image: '/Image/fnir2024.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/regate',
   },
   {
     name: 'FNIR 2023',
     image: '/Image/fnir23.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/regate',
   },
   {
     name: 'FNIR 2022',
     image: '/Image/fnir22.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/regate',
   },
 ];
 
@@ -97,7 +95,13 @@ export default function Regates() {
                 <h3 className="text-xl font-semibold text-amber-500">{item.name}</h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
                 <Button className="mt-4 bg-blue-500 text-white hover:bg-blue-400">
-                  <Link href={item.reservationLink}>Lire Plus</Link>
+                  <Link
+                    href={buildWhatsAppLink(buildReservationMessage(item.name))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Lire Plus
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

@@ -1,29 +1,24 @@
-// pages/activities.js
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import Meteo from '@/components/Meteo';
-import React from 'react'
+import { buildReservationMessage, buildWhatsAppLink } from '@/lib/whatsapp'
 
 const activities = [
   {
     name: 'Paddel Loisir',
     image: '/Image/paddle.jpg',
     description: 'Baldez en toute liberté avec du matériel au top.',
-    reservationLink: 'https://planning.izidoor.io/booking/516/538/products?showCourseDetailsModal=true&selectedTemplateProductId=21279',
   },
  
   {
     name: 'Paddel privatisé',
     image: '/Image/paddle.jpg',
     description: 'Un moniteur rien que pour vous ! Apprendre les bases du surf et amuser vous avec les vagues . Chacun apprend à son rythme. Un seul mot d`ordre: le plaisir!.',
-    reservationLink: 'https://planning.izidoor.io/booking/516/538/products?showCourseDetailsModal=true&selectedTemplateProductId=21357',
   },
   {
     name: 'Demi Journée Paddel',
     image: '/Image/paddle.jpg',
     description: 'asse une agréable Journée chez le club nautique plage de rabat 3h de Kayak vous mette plaisir!.',
-    reservationLink: 'https://planning.izidoor.io/booking/516/538/products?showCourseDetailsModal=true&selectedTemplateProductId=21442',
   },
 ]
 
@@ -50,7 +45,9 @@ export default function Paddel() {
                 <h2 className="text-xl font-semibold text-gray-800">{activity.name}</h2>
                 <p className="text-gray-600 mt-2 flex-grow">{activity.description}</p>
                 <Link
-                  href={activity.reservationLink}
+                  href={buildWhatsAppLink(buildReservationMessage(activity.name))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-block text-center bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition"
                 >
                   Reserve Now

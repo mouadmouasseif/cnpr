@@ -1,35 +1,57 @@
-// app/help/page.tsx
 "use client";
+
 import React from "react";
-import { FaPhone, FaMapMarkerAlt, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"; // Import des composants du formulaire
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { buildWhatsAppLink, WHATSAPP_PHONE } from "@/lib/whatsapp";
+
+type ContactFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 export default function HelpPage() {
-  const form = useForm({
+  const form = useForm<ContactFormValues>({
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Logique pour traiter les données du formulaire
+  const onSubmit = (data: ContactFormValues) => {
+    const message = [
+      "Bonjour CNPR, je souhaite vous contacter.",
+      `Nom: ${data.name}`,
+      `Email: ${data.email}`,
+      `Telephone: ${data.phone}`,
+      `Message: ${data.message}`,
+    ].join("\n");
+
+    window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
   };
 
   return (
     <div className="text-center">
       <h1 className="text-3xl font-bold mb-4">Contact</h1>
-      <p className="mb-8 text-gray-600"></p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
           <FaMapMarkerAlt className="text-blue-600 text-4xl mb-4 mx-auto" />
-          <h3 className="text-lg font-semibold">CLUB NAUTIQUE PALGE DE RABAT</h3>
+          <h3 className="text-lg font-semibold">CLUB NAUTIQUE PLAGE DE RABAT</h3>
           <p className="text-gray-600">Plage des Oudayas Rabat, Maroc</p>
         </div>
 
@@ -39,11 +61,14 @@ export default function HelpPage() {
           <p className="text-gray-600">+212-640-321-162</p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+        <a
+          href={buildWhatsAppLink("Bonjour CNPR, je souhaite vous contacter.")}
+          className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow"
+        >
           <FaWhatsapp className="text-blue-600 text-4xl mb-4 mx-auto" />
           <h3 className="text-lg font-semibold">WHATSAPP</h3>
-          <p className="text-gray-600">+212-640-321-162</p>
-        </div>
+          <p className="text-gray-600">+{WHATSAPP_PHONE}</p>
+        </a>
 
         <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
           <FaEnvelope className="text-blue-600 text-4xl mb-4 mx-auto" />
@@ -52,7 +77,6 @@ export default function HelpPage() {
         </div>
       </div>
 
-      {/* Formulaire de contact */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
         <Form {...form}>
@@ -78,7 +102,21 @@ export default function HelpPage() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Votre email" {...field} />
+                    <Input placeholder="Votre email" type="email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Telephone</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Votre telephone" type="tel" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -99,7 +137,9 @@ export default function HelpPage() {
               )}
             />
 
-            <Button type="submit" className="mt-4">Envoyer</Button>
+            <Button type="submit" className="mt-4">
+              Envoyer sur WhatsApp
+            </Button>
           </form>
         </Form>
       </div>

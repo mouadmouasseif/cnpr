@@ -1,47 +1,39 @@
-// pages/activities.js
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import Meteo from '@/components/Meteo';
-import React from 'react'
+import { buildReservationMessage, buildWhatsAppLink } from '@/lib/whatsapp'
 
 const activities = [
   {
     name: 'Surf',
     image: '/Image/surf.jpg',
     description: 'Enjoy the thrill of surfing with our expert instructors.',
-    reservationLink: '/surf',
   },
   {
     name: 'Kayak',
     image: '/Image/kayak.jpg',
     description: 'Explore the waters on a kayak and experience nature like never before.',
-    reservationLink: '/kayak',
   },
   {
     name: 'Sailing',
     image: '/Image/Sailing.jpg',
     description: 'Set sail and feel the breeze with our guided sailing tours.',
-    reservationLink: '/reservation?activity=sailing',
   },
   {
     
     name: 'Bodyboard',
     image: '/Image/bodyboard.jpg',
     description: 'Ride the waves with the excitement of bodyboarding.',
-    reservationLink: 'https://booking.myrezapp.com/fr/online/booking/step1/16225/68564',
   },
   {
     name: 'Paddle',
     image: '/Image/paddle.jpg',
     description: 'Try paddleboarding and enjoy the calmness of the water.',
-    reservationLink: '/paddel',
   },
   {
     name: 'Aviron',
     image: '/Image/Aviron.jpg',
     description: 'Try paddleboarding and enjoy the calmness of the water.',
-    reservationLink: 'Aviron',
   },
 ]
 
@@ -68,7 +60,9 @@ export default function Activities() {
                 <h2 className="text-xl font-semibold text-gray-800">{activity.name}</h2>
                 <p className="text-gray-600 mt-2 flex-grow">{activity.description}</p>
                 <Link
-                  href={activity.reservationLink}
+                  href={buildWhatsAppLink(buildReservationMessage(activity.name))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-block text-center bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition"
                 >
                   Reserve Now
